@@ -12,7 +12,7 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
-Appstore.xcodeproj/xcuserdata/
+Appstore.xcodeproj/xcuserdata
 
 ## Other
 *.moved-aside
