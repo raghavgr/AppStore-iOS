@@ -45,7 +45,7 @@ class AppSearchController: BaseListController, UICollectionViewDelegateFlowLayou
     var timer: Timer?
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        //print(searchText)
         
         // introduce some delay before performing the search
         // throttling the search

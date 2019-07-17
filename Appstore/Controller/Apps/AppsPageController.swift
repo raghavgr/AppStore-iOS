@@ -21,6 +21,27 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         
         // Header1: Setting up the header for collection view. Sliding carousel of images
         collectionView.register(AppsPageHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader , withReuseIdentifier: headerId)
+        fetchData()
+    }
+    
+    var editorsChoiceGames: AppGroup?
+    
+    fileprivate func fetchData() {
+        
+        print("Retrieving JSON data to fill AppPageHeader")
+        Service.shared.fetchGames() {(appGroup, err) in
+            if let err = err {
+                print("Failed to fetch games: ", err)
+                return
+            }
+                //print(appGroup?.feed.results)
+            self.editorsChoiceGames = appGroup
+
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+            
+        }
     }
     
     // Header2: function for dequeing a reusable supplementary view to be used as a header
@@ -35,11 +56,14 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsGroupCell
+        cell.titleLabel.text = editorsChoiceGames?.feed.title
+        cell.horizontalController.appGroup = editorsChoiceGames
+        cell.horizontalController.collectionView.reloadData()
         return cell
     }
     

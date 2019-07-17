@@ -28,6 +28,7 @@
 		0EE192DC229392B90066CBF1 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE192DB229392B90066CBF1 /* Service.swift */; };
 		0EE192E12293EE770066CBF1 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE192E02293EE770066CBF1 /* BaseListController.swift */; };
 		0EE192E92293FE160066CBF1 /* AppsHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE192E82293FE160066CBF1 /* AppsHorizontalController.swift */; };
+		0EF86396229FFB060088F5BC /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF86395229FFB060088F5BC /* AppGroup.swift */; };
 		B2B4EA1A5F38D966B87E2252 /* Pods_Appstore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6E6C75231A5B796AC67757 /* Pods_Appstore.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		0EE192DB229392B90066CBF1 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		0EE192E02293EE770066CBF1 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
 		0EE192E82293FE160066CBF1 /* AppsHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalController.swift; sourceTree = "<group>"; };
+		0EF86395229FFB060088F5BC /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		5C1F01894AB35A578EE10BA3 /* Pods-Appstore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Appstore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Appstore/Pods-Appstore.debug.xcconfig"; sourceTree = "<group>"; };
 		5C557EE668954EBA6ACDCB2B /* Pods-Appstore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Appstore.release.xcconfig"; path = "Pods/Target Support Files/Pods-Appstore/Pods-Appstore.release.xcconfig"; sourceTree = "<group>"; };
 		6E6E6C75231A5B796AC67757 /* Pods_Appstore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Appstore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				0EE192D822938D560066CBF1 /* SearchResult.swift */,
+				0EF86395229FFB060088F5BC /* AppGroup.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				0E3F9DA1228A496300C48ED0 /* ViewController.swift in Sources */,
 				0E999AF32295523B009ABC88 /* AppsGroupCell.swift in Sources */,
 				0E999ADA2294AB12009ABC88 /* AppsPageController.swift in Sources */,
+				0EF86396229FFB060088F5BC /* AppGroup.swift in Sources */,
 				0E3F9D9F228A496300C48ED0 /* AppDelegate.swift in Sources */,
 				0EE192D922938D560066CBF1 /* SearchResult.swift in Sources */,
 				0E37334D228BC6F10004293A /* UIView+Layout.swift in Sources */,

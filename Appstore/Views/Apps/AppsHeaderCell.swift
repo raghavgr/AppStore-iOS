@@ -12,7 +12,7 @@ class AppsHeaderCell: UICollectionViewCell {
     
     let companyLabel = UILabel(text: "Facebook", font: .boldSystemFont(ofSize: 12))
     
-    let titleLabel = UILabel(text: "Keep friends closer just got even more creepy", font: .systemFont(ofSize: 24))
+    let titleLabel = UILabel(text: "Keeping friends closer just got even more easier", font: .systemFont(ofSize: 24))
     
     let imageView = UIImageView(cornerRadius: 8)
     

@@ -12,6 +12,8 @@ class AppsHorizontalController: BaseListController, UICollectionViewDelegateFlow
     
     let cellId = "cellId"
     
+    var appGroup: AppGroup?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
@@ -24,12 +26,17 @@ class AppsHorizontalController: BaseListController, UICollectionViewDelegateFlow
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        print("Number of apps in this controller: ", appGroup?.feed.results.count)
+        return appGroup?.feed.results.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppRowCell
         //cell.backgroundColor = .red
+        let app = appGroup?.feed.results[indexPath.item]
+        cell.nameLabel.text = app?.name
+        cell.companyLabel.text = app?.artistName
+        cell.appIconImageView.sd_setImage(with: URL(string: app?.artworkUrl100 ?? ""))
         return cell
     }
     
