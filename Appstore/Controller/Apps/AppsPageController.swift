@@ -36,8 +36,6 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         
         dispatchGroup.enter()
         
-        
-        
         print("Retrieving JSON data to fill AppPageHeader")
         Service.shared.fetchTopGrossing() {(appGroup, err) in
             if let err = err {
@@ -58,8 +56,6 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
             group2 = appGroup
         }
         
-     
-        
         // completion
         dispatchGroup.notify(queue: .main) {
             print("completed your dispatch group task...")
@@ -78,17 +74,17 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
     
     // Header2: function for dequeing a reusable supplementary view to be used as a header
    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-    let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath)
+    let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! AppsPageHeader
         return header
     }
     
     // Header3: Function for managing the size of the header
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return .init(width: view.frame.width, height: 0)
+        return .init(width: view.frame.width, height: 300)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return groups.count ?? 1
+        return groups.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

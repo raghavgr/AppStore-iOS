@@ -61,21 +61,40 @@ class Service {
         URLSession.shared.dataTask(with: url) {
             (data, resp, err) in
             
-            if let err = err {
-                print("Failed to retrieve games: ", err)
-                
-                completion(nil, err)
-                return
-            }
+                if let err = err {
+                    print("Failed to retrieve games: ", err)
+                    completion(nil, err)
+                    return
+                }
+                //print(String(data: data!, encoding: .utf8))
+                do {
+                    let appGroupResult = try JSONDecoder().decode(AppGroup.self, from: data!)
+                    appGroupResult.feed.results.forEach({print($0.name)})
+                    completion(appGroupResult, nil)
+                } catch let jsonErr {
+                    completion(nil, jsonErr)
+                }
+            }.resume() // this will fire your request
+    }
+    
+    func fetchAppsSocial(completion: @escaping ([SocialApp]?, Error?) -> Void) {
+        let urlString = "https://api.letsbuildthatapp.com/appstore/social"
+        guard let url = URL(string: urlString) else {return}
+        URLSession.shared.dataTask(with: url) {
+            (data, resp, err) in
             
-            //print(String(data: data!, encoding: .utf8))
-            do {
-                let appGroupResult = try JSONDecoder().decode(AppGroup.self, from: data!)
-                appGroupResult.feed.results.forEach({print($0.name)})
-                completion(appGroupResult, nil)
-            } catch let jsonErr {
-                completion(nil, jsonErr)
-            }
+                if let err = err {
+                    print("Failed to retrieve games: ", err)
+                    completion(nil, err)
+                    return
+                }
+                //print(String(data: data!, encoding: .utf8))
+                do {
+                    let socialApppResult = try JSONDecoder().decode([SocialApp].self, from: data!)
+                    completion(socialApppResult, nil)
+                } catch let jsonErr {
+                    completion(nil, jsonErr)
+                }
             }.resume() // this will fire your request
     }
  
