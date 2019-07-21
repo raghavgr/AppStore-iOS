@@ -69,7 +69,7 @@ class Service {
                 //print(String(data: data!, encoding: .utf8))
                 do {
                     let appGroupResult = try JSONDecoder().decode(AppGroup.self, from: data!)
-                    appGroupResult.feed.results.forEach({print($0.name)})
+                    //appGroupResult.feed.results.forEach({print($0.name)})
                     completion(appGroupResult, nil)
                 } catch let jsonErr {
                     completion(nil, jsonErr)
